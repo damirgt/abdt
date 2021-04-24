@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/sirupsen/logrus"
 	"os"
+	"net/http"
 )
 
 func main() {
@@ -12,4 +13,10 @@ func main() {
 		logrus.Fatal("Port is not set")
 	}
 	logrus.Info("listening on port " + port)
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+	})
+
+	http.ListenAndServe(":"+ port, nil)
 }
