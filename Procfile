@@ -1,1 +1,1 @@
-web: bin/abdt
+web: bin/itis
