@@ -14,6 +14,10 @@ func main() {
 	}
 	logrus.Info("listening on port " + port)
 
+	gdtdevenv := os.Getenv("GDTDEV_ENV")
+	logrus.Info("GDTDEV_ENV = " + gdtdevenv)
+
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 	})
